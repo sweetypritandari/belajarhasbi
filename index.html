@@ -6,23 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-   <h1>Products</h1>
-   <ul id="product-list"></ul>
-   <table>
-    
-   </table>
+    <h1>Products</h1>
+    <table border="1" id="product-list">
+    </table>
     <script>
         const list = document.getElementById('product-list')
         fetch('https://fakestoreapi.com/products')
         .then(res => res.json())
         .then(products => {
             products.forEach(product => {
-            const item = document.createELement('li')
-            item.innerHTML = ${product.title} | ${product.price}
-            <img src="${product.image}" width="50">
-            list.appendChild(item)
+                const item = document.createElement('tr')
+                item.innerHTML = `
+                    <td><img src="${product.image}" width="40"/></td>
+                    <td>${product.title}</td>
+                    <td>${product.title}</td>
+                    `
+                list.appendChild(item)
+            })
         })
-    })
     </script>
 </body>
 </html>
